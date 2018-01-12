@@ -12,8 +12,17 @@ import (
 func main() {
 
 	cmdargs := os.Args[1:]
+	if len(cmdargs) < 2 {
+		fmt.Println("csvpurl requires filename and line number.")
+		os.Exit(1)
+	}
 	file := cmdargs[0]
 	line, err := strconv.Atoi(cmdargs[1])
+	if err != nil {
+		fmt.Println("Invalid Line number.")
+		os.Exit(1)
+
+	}
 	csvFile, _ := os.Open(file)
 	reader := csv.NewReader(csvFile)
 	header, err := reader.Read()
