@@ -30,6 +30,7 @@ func main() {
 	}
 
 	csvFile, _ := os.Open(file)
+	defer csvFile.Close()
 	reader := csv.NewReader(csvFile)
 	header, err := reader.Read()
 
@@ -56,6 +57,5 @@ func main() {
 		}
 		count = count + 1
 	}
-	csvFile.Close()
 
 }
