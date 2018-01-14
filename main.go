@@ -46,10 +46,10 @@ func main() {
 			for index, item := range header {
 				fmt.Println(item, ":", record[index])
 			}
+			break
 		}
 		count = count + 1
 	}
-
-	// fmt.Println(header)
+	csvFile.Close()
 
 }
