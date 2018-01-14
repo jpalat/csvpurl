@@ -23,6 +23,12 @@ func main() {
 		os.Exit(1)
 
 	}
+
+	if line < 1 {
+		fmt.Println("Number must be a positive integer >= 1")
+		os.Exit(1)
+	}
+
 	csvFile, _ := os.Open(file)
 	reader := csv.NewReader(csvFile)
 	header, err := reader.Read()
@@ -31,7 +37,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	count := 0
+	count := 1
 
 	for {
 
